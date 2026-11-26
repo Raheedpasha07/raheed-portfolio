@@ -22,7 +22,7 @@ function Portrait() {
       >
         <div className="portrait-lines" aria-hidden="true" />
         <img
-          src="/assets/raheed-portrait.webp"
+          src="./assets/raheed-portrait.webp"
           alt="Portrait of Raheed Pasha"
           width="840" height="1000"
           draggable="false"
