@@ -1,0 +1,14 @@
+{
+  "name": "raheed-portfolio",
+  "private": true,
+  "scripts": {
+    "build": "esbuild src/portrait.jsx --bundle --jsx=automatic --minify --legal-comments=linked --outfile=dist/assets/portrait.js"
+  },
+  "dependencies": {
+    "react": "19.2.0",
+    "react-dom": "19.2.0"
+  },
+  "devDependencies": {
+    "esbuild": "0.25.12"
+  }
+}
