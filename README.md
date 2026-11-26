@@ -2,6 +2,8 @@
 
 A personal portfolio covering my Computer Science and Engineering degree and projects in defensive security, Android, IoT, and full-stack development.
 
+[View the live portfolio on GitHub Pages](https://raheedpasha07.github.io/raheed-portfolio/)
+
 The site includes six project case studies, an education section, and links to the project repositories and my LinkedIn profile. The ShadowMesh case study includes a small interactive walkthrough of its defensive pipeline.
 
 ## Run locally
@@ -30,9 +32,12 @@ Run `npm run build` after editing the React entry point or its components. The b
 
 ## Deploy
 
-Build the site and serve `dist/` at the root of a static host. There is no backend, API key, or environment configuration. The GitHub source repository and the existing ChatGPT Sites deployment are separate.
+The [GitHub Pages workflow](.github/workflows/pages.yml) publishes the checked-in `dist/` directory when changes are pushed to `main`. Rebuild the portrait bundle before committing changes to its React source.
 
-- [Hosted portfolio](https://raheed-build-log.rahidrahis11.chatgpt.site)
+You can also serve `dist/` from another static host. The site does not need a backend, API keys, or environment variables.
+
+- [GitHub Pages](https://raheedpasha07.github.io/raheed-portfolio/)
+- [ChatGPT Sites copy](https://raheed-build-log.rahidrahis11.chatgpt.site)
 - [LinkedIn](https://www.linkedin.com/in/raheed-pasha-8138543aa)
 
 ## Credits
