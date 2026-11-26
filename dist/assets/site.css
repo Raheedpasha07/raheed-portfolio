@@ -1,5 +1,5 @@
-@font-face{font-family:Bricolage;src:url('/assets/bricolage.woff2') format('woff2');font-weight:400 800;font-display:swap}
-@font-face{font-family:DM Sans;src:url('/assets/dm-sans.woff2') format('woff2');font-weight:400 700;font-display:swap}
+@font-face{font-family:Bricolage;src:url('./bricolage.woff2') format('woff2');font-weight:400 800;font-display:swap}
+@font-face{font-family:DM Sans;src:url('./dm-sans.woff2') format('woff2');font-weight:400 700;font-display:swap}
 :root{--paper:#f4f3ed;--ink:#20221d;--sub:#53564e;--line:#d4d6ca;--dark:#171a16;--accent:#d8edaa;--type:"DM Sans",Arial,sans-serif;--display:Bricolage,Arial,sans-serif}
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
