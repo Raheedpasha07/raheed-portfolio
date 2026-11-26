@@ -15,3 +15,26 @@ for (const button of stageButtons) {
     for (const item of stageButtons) item.setAttribute("aria-pressed", String(item === button));
   });
 }
+
+const sectionLinks = [...document.querySelectorAll(".header nav a")];
+const navSections = sectionLinks.map((link) => document.querySelector(link.hash));
+
+function updateNavigation() {
+  const atBottom = Math.ceil(window.scrollY + window.innerHeight) >= document.documentElement.scrollHeight;
+  const section = atBottom ? navSections.at(-1) : navSections.findLast((item) => item.getBoundingClientRect().top <= 110);
+  for (const link of sectionLinks) {
+    if (link.hash === '#' + section?.id) link.setAttribute("aria-current", "location");
+    else link.removeAttribute("aria-current");
+  }
+}
+
+function openLinkedProject() {
+  const target = document.getElementById(location.hash.slice(1));
+  const notes = target?.querySelector("details");
+  if (notes) notes.open = true;
+}
+
+window.addEventListener("scroll", updateNavigation, { passive: true });
+window.addEventListener("hashchange", openLinkedProject);
+openLinkedProject();
+updateNavigation();
