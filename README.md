@@ -4,7 +4,7 @@ A personal portfolio covering my Computer Science and Engineering degree and pro
 
 [View the live portfolio on GitHub Pages](https://raheedpasha07.github.io/raheed-portfolio/)
 
-The site includes six project case studies, an education section, and links to the project repositories and my LinkedIn profile. The ShadowMesh case study includes a small interactive walkthrough of its defensive pipeline.
+The site features a ShadowMesh walkthrough, five more project case studies with expandable notes, and a short About and Education section. Each project links to its source repository.
 
 ## Run locally
 
@@ -24,7 +24,7 @@ Open [http://localhost:8000](http://localhost:8000). The built files are checked
 | --- | --- |
 | `dist/index.html` | Portfolio content, navigation, education, and case studies |
 | `dist/assets/site.css` | Layout, typography, and responsive styles |
-| `dist/assets/site.js` | ShadowMesh walkthrough |
+| `dist/assets/site.js` | ShadowMesh walkthrough, navigation state, and deep links to project notes |
 | `src/portrait.jsx` | React entry point for the portrait and its pointer effects |
 | `src/react-bits/` | Registry source for the React Bits components |
 
@@ -43,3 +43,5 @@ You can also serve `dist/` from another static host. The site does not need a ba
 ## Credits
 
 The portrait uses [Tilted Card](https://reactbits.dev/components/tilted-card) and [Spotlight Card](https://reactbits.dev/components/spotlight-card) by React Bits. The typefaces are Bricolage Grotesque and DM Sans. Third-party terms are in [dist/licenses/](dist/licenses/). The portrait is personal artwork and is not covered by the third-party component or font licenses.
+
+Layout references were [AstroPaper](https://github.com/satnaing/astro-paper) for its compact navigation, [Astro Cactus](https://github.com/chrismwilliams/astro-theme-cactus) for its project and note hierarchy, and the [Eleventy base blog](https://github.com/11ty/eleventy-base-blog) for a small, static content structure. The project notes use native HTML disclosure controls.
