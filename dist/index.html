@@ -1,0 +1,231 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Raheed Pasha’s education and software projects in defensive security, Android, IoT, and full-stack development.">
+  <meta name="theme-color" content="#171a16">
+  <title>Raheed Pasha — Portfolio</title>
+  <link rel="icon" href="/assets/icon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/assets/portrait.css">
+  <link rel="stylesheet" href="/assets/site.css">
+  <script src="/assets/site.js" defer></script>
+  <script type="module" src="/assets/portrait.js"></script>
+</head>
+<body id="top">
+  <a class="skip" href="#main">Skip to content</a>
+  <header class="shell header">
+      <a class="brand" href="#top" aria-label="Raheed Pasha, home"><span class="brand-mark" aria-hidden="true">rp.</span><span>Raheed Pasha</span></a>
+      <nav aria-label="Main navigation"><a href="#work">Work</a><a href="#about">About</a><a href="#education">Education</a><a href="#contact">Contact</a></nav>
+      <a class="header-social" href="https://www.linkedin.com/in/raheed-pasha-8138543aa">LinkedIn</a>
+  </header>
+  <main id="main">
+  <div class="hero-wrap">
+    <section class="shell hero" aria-labelledby="intro">
+      <div class="hero-copy">
+        <p class="eyebrow"><span aria-hidden="true"></span> Computer Science &amp; Engineering · Bengaluru, India</p>
+        <h1 id="intro">Raheed<br>Pasha<span>.</span></h1>
+        <p class="intro">I study Computer Science and Engineering at AMC Engineering College in Bengaluru. My projects include a defensive security lab, an Android gamepad for macOS, and a dashboard for an Arduino sensor project.</p>
+        <div class="hero-actions"><a class="button" href="#work">Explore my work</a><a class="quiet" href="https://github.com/Raheedpasha10">Find me on GitHub</a></div>
+      </div>
+      <figure class="portrait">
+        <div id="portrait-island">
+          <div class="portrait-stage fallback">
+            <div class="portrait-lines" aria-hidden="true"></div>
+            <img src="/assets/raheed-portrait.webp" width="840" height="1000" alt="Portrait of Raheed Pasha" fetchpriority="high">
+          </div>
+        </div>
+      </figure>
+    </section>
+  </div>
+
+  <section id="work" class="shell work" aria-labelledby="work-title">
+    <div class="section-intro">
+      <div><p class="eyebrow"><span aria-hidden="true"></span> Project index</p><h2 id="work-title">Selected work</h2></div>
+      <p>How each project works, what I focused on, and where to find the code.</p>
+    </div>
+    <nav class="project-index" aria-label="Jump to a project">
+      <a href="#shadowmesh"><strong>ShadowMesh</strong><span>Defensive security</span></a>
+      <a href="#controller"><strong>Controller</strong><span>Android &amp; macOS</span></a>
+      <a href="#elib"><strong>E-Library</strong><span>Full-stack &amp; machine learning</span></a>
+      <a href="#proxiguard"><strong>ProxiGuard</strong><span>IoT &amp; 3D visualization</span></a>
+      <a href="#student-compass"><strong>Student Compass</strong><span>Full-stack &amp; AI</span></a>
+      <a href="#steganography"><strong>Steganography Pro</strong><span>Web &amp; digital media</span></a>
+    </nav>
+
+    <article class="case" id="shadowmesh">
+      <header class="case-header">
+        <div><p class="eyebrow"><span aria-hidden="true"></span> Defensive security research</p><h3>ShadowMesh</h3></div>
+        <a class="source" href="https://github.com/Raheedpasha10/shadowmesh">View ShadowMesh on GitHub</a>
+      </header>
+      <p class="case-lede">An SSH honeypot that records activity and turns it into sessions you can review.</p>
+      <div class="case-grid">
+        <div class="case-copy">
+          <h4>Logging and dashboard</h4>
+          <p>Cowrie logs activity on the decoy server. Python groups the events into sessions and stores them in Elasticsearch. The dashboard shows the events in order and shows how the system responded.</p>
+          <h4>Decoy changes and detection rules</h4>
+          <p>The system can change decoy files based on session activity and draft Snort and YARA rules for review. The running honeypot uses a baseline policy. I explored reinforcement learning separately through offline PPO tests.</p>
+          <p class="aside">I worked on making it easier to trace a dashboard decision back to the events that led to it.</p>
+        </div>
+        <figure class="demo demo-shadow">
+          <figcaption>Walk through the defensive pipeline</figcaption>
+          <div class="flow" role="group" aria-label="ShadowMesh pipeline stages">
+            <button type="button" data-stage="observe" aria-pressed="true"><span>01</span> Observe</button>
+            <button type="button" data-stage="adapt" aria-pressed="false"><span>02</span> Adapt</button>
+            <button type="button" data-stage="detect" aria-pressed="false"><span>03</span> Detect</button>
+          </div>
+          <div class="demo-state" aria-live="polite"><strong id="stage-title">Collect session telemetry</strong><p id="stage-text">Cowrie records SSH interactions. The ingestion pipeline groups events into searchable session records.</p></div>
+          <p class="demo-caption">Architecture walkthrough</p>
+        </figure>
+      </div>
+      <ul class="tags" aria-label="ShadowMesh technologies"><li>Python</li><li>Cowrie</li><li>Elasticsearch</li><li>Docker Compose</li></ul>
+    </article>
+
+    <article class="case" id="controller">
+      <header class="case-header">
+        <div><p class="eyebrow"><span aria-hidden="true"></span> Android &amp; macOS</p><h3>Controller</h3></div>
+        <a class="source" href="https://github.com/Raheedpasha10/Controller">View Controller on GitHub</a>
+      </header>
+      <p class="case-lede">An Android phone that pairs with a Mac as a Bluetooth gamepad.</p>
+      <div class="case-copy controller-copy">
+        <h4>How it connects</h4>
+        <p>The Android app sends gamepad input to macOS over Bluetooth HID, so the Mac can receive it as controller input. It supports DualSense, Xbox, and Switch Pro layouts. You can move and resize the on-screen controls and save a separate layout for each profile.</p>
+        <h4>Handling button releases</h4>
+        <p>The app limits how often it sends updates to avoid filling the Bluetooth queue. Button releases and sticks returning to center get priority, so the Mac can register when you stop pressing a control.</p>
+      </div>
+      <ul class="tags" aria-label="Controller technologies"><li>Kotlin</li><li>Jetpack Compose</li><li>Bluetooth HID</li><li>macOS</li></ul>
+    </article>
+
+    <article class="case" id="elib">
+      <header class="case-header">
+        <div><p class="eyebrow"><span aria-hidden="true"></span> Full-stack &amp; machine learning</p><h3>E-Library</h3></div>
+        <a class="source" href="https://github.com/Raheedpasha10/E-Library">View E-Library on GitHub</a>
+      </header>
+      <p class="case-lede">A digital library for finding, borrowing, and reading books in the browser.</p>
+      <div class="case-grid">
+        <div class="case-copy">
+          <h4>Catalog and reading</h4>
+          <p>The app combines a local catalog with external book sources. It tracks borrowing and returns, lets administrators manage the catalog, and remembers where a reader left off in an EPUB.</p>
+          <h4>Book recommendations</h4>
+          <p>A companion Python project uses public Goodreads ratings and matrix factorization to make recommendations. It can suggest titles based on a reader’s ratings or find books with similar rating patterns.</p>
+          <p class="case-reference"><a class="source" href="https://github.com/Raheedpasha10/elib-recommender">View the recommender on GitHub</a></p>
+        </div>
+        <figure class="demo demo-library">
+          <figcaption>What the system handles</figcaption>
+          <ol class="journey">
+            <li><strong>Catalog</strong><span>Search the library and browse external book records.</span></li>
+            <li><strong>Borrowing</strong><span>Track availability, loans, and returns.</span></li>
+            <li><strong>Reading</strong><span>Open an EPUB and pick up where you left off.</span></li>
+          </ol>
+        </figure>
+      </div>
+      <ul class="tags" aria-label="E-Library technologies"><li>React</li><li>Express</li><li>MongoDB</li><li>Python</li><li>scikit-learn</li></ul>
+    </article>
+
+    <article class="case" id="proxiguard">
+      <header class="case-header">
+        <div><p class="eyebrow"><span aria-hidden="true"></span> IoT &amp; 3D visualization</p><h3>ProxiGuard</h3></div>
+        <a class="source" href="https://github.com/Raheedpasha10/proxiguard">View ProxiGuard on GitHub</a>
+      </header>
+      <p class="case-lede">An Arduino project that shows readings from physical sensors in a 3D browser dashboard.</p>
+      <div class="case-grid">
+        <div class="case-copy">
+          <h4>From the circuit to the browser</h4>
+          <p>An Arduino collects distance, infrared, and vibration readings. An ESP8266 carries the readings over Wi-Fi. A Python gateway forwards them to the browser over WebSockets.</p>
+          <h4>Inspecting the board</h4>
+          <p>The Three.js dashboard places sensor readings alongside a 3D model of the board. It gives you a way to see which sensor is reporting without watching a separate stream of numbers.</p>
+        </div>
+        <figure class="demo demo-iot">
+          <figcaption>How readings reach the dashboard</figcaption>
+          <ol class="journey">
+            <li><strong>Arduino and ESP8266</strong><span>Read the sensors and send their values over Wi-Fi.</span></li>
+            <li><strong>Python gateway</strong><span>Receive readings and forward them over WebSockets.</span></li>
+            <li><strong>Three.js dashboard</strong><span>Show readings alongside the board model.</span></li>
+          </ol>
+        </figure>
+      </div>
+      <ul class="tags" aria-label="ProxiGuard technologies"><li>Arduino</li><li>ESP8266</li><li>Python</li><li>WebSockets</li><li>Three.js</li></ul>
+    </article>
+
+    <article class="case" id="student-compass">
+      <header class="case-header">
+        <div><p class="eyebrow"><span aria-hidden="true"></span> Student tools</p><h3>Student Compass</h3></div>
+        <a class="source" href="https://github.com/Raheedpasha10/student_compass">View Student Compass on GitHub</a>
+      </header>
+      <p class="case-lede">A student app for exploring careers and planning what to learn next.</p>
+      <div class="case-grid">
+        <div class="case-copy">
+          <h4>Career paths and learning plans</h4>
+          <p>Students can browse a field, compare specializations, and choose a role to explore. Gemini then suggests skills to learn, activities to try, and resources to start with.</p>
+          <h4>Frontend and backend</h4>
+          <p>React handles the browsing and roadmap interface. A FastAPI backend serves career and resource requests and calls Gemini to generate guidance.</p>
+          <p class="aside">The goal was to give students a concrete next step after exploring a career.</p>
+        </div>
+        <figure class="demo demo-compass">
+          <figcaption>Student journey</figcaption>
+          <ol class="journey">
+            <li><strong>Browse a field</strong><span>Start broad, then pick a specialization.</span></li>
+            <li><strong>Look into a role</strong><span>Explore what the work and skills involve.</span></li>
+            <li><strong>Get a roadmap</strong><span>Leave with activities and resources to try.</span></li>
+          </ol>
+        </figure>
+      </div>
+      <ul class="tags" aria-label="Student Compass technologies"><li>React</li><li>FastAPI</li><li>Gemini</li><li>Tailwind CSS</li></ul>
+    </article>
+
+    <article class="case" id="steganography">
+      <header class="case-header">
+        <div><p class="eyebrow"><span aria-hidden="true"></span> Digital media experiment</p><h3>Steganography Pro</h3></div>
+        <a class="source" href="https://github.com/Raheedpasha10/steganography">View Steganography Pro on GitHub</a>
+      </header>
+      <p class="case-lede">A web app for embedding and extracting messages in text and audio.</p>
+      <div class="case-grid">
+        <div class="case-copy">
+          <h4>Text and audio support</h4>
+          <p>The app offers embedding and extraction for text and audio. Vue presents the two workflows. Flask handles the processing, with Librosa used on the audio side.</p>
+          <h4>Capacity and media quality</h4>
+          <p>I used the project to explore how much data each format can hold and how embedding affects media quality or makes a hidden message easier to detect.</p>
+        </div>
+        <figure class="demo demo-steg">
+          <figcaption>Two media, one experiment</figcaption>
+          <div class="media-sample"><div><strong>Text</strong><span class="text-lines" aria-hidden="true"></span></div><div><strong>Audio</strong><span class="wave" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span></div></div>
+          <p class="demo-caption">Both workflows support embedding and extraction.</p>
+        </figure>
+      </div>
+      <ul class="tags" aria-label="Steganography Pro technologies"><li>Vue</li><li>Flask</li><li>Librosa</li></ul>
+    </article>
+  </section>
+
+  <section class="about-wrap" id="about" aria-labelledby="about-title">
+    <div class="shell about">
+      <div><h2 id="about-title">About me</h2></div>
+      <div class="about-copy">
+        <p>I’m interested in defensive security, reinforcement learning, and developer tools. I also like building things for the hardware I already use. The Android gamepad started as a way to learn Bluetooth HID on my phone and Mac.</p>
+        <p>I work mostly in Python, Kotlin, and JavaScript. I’ve used them for sensor dashboards, Android interfaces, web apps, and experiments with recommendation models.</p>
+      </div>
+    </div>
+  </section>
+  <section id="education" class="shell education" aria-labelledby="education-title">
+    <div>
+      <h2 id="education-title">Education</h2>
+      <p class="education-school">AMC Engineering College, Bengaluru</p>
+      <p>B.E. in Computer Science and Engineering</p>
+      <p class="education-detail">Visvesvaraya Technological University (VTU)–affiliated</p>
+      <a class="quiet" href="https://www.linkedin.com/in/raheed-pasha-8138543aa">LinkedIn profile</a>
+    </div>
+    <div class="academic-work">
+      <h3>Work from my degree</h3>
+      <dl>
+        <div><dt><a class="quiet" href="#shadowmesh">ShadowMesh</a></dt><dd>Final-year team project on defensive security. My contributions included evaluating the system, working with simulated sessions, and helping build the layer that generates decoy content.</dd></div>
+        <div><dt><a class="quiet" href="#elib">Book recommendation engine</a></dt><dd>Machine learning assignment using public Goodreads ratings to explore how collaborative filtering works.</dd></div>
+      </dl>
+    </div>
+  </section>
+  <section id="contact" class="shell contact" aria-labelledby="contact-title">
+    <div><p class="eyebrow"><span aria-hidden="true"></span> Contact</p><h2 id="contact-title">Get in touch</h2><p>You can reach me on LinkedIn or find my projects on GitHub.</p></div>
+    <div class="contact-links"><a class="button" href="https://www.linkedin.com/in/raheed-pasha-8138543aa">Connect on LinkedIn</a><a class="quiet" href="https://github.com/Raheedpasha10?tab=repositories">Browse my GitHub</a></div>
+  </section>
+  </main>
+  <footer class="shell footer"><span>Raheed Pasha</span><a class="quiet" href="#top">Back to top</a></footer>
+</body>
+</html>
